@@ -338,12 +338,15 @@ final class PermissionManager implements PluginRegistry.ActivityResultListener, 
 
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (Integer permission : permissions) {
-            @PermissionConstants.PermissionStatus final int permissionStatus = determinePermissionStatus(permission);
-            if (permissionStatus == PermissionConstants.PERMISSION_STATUS_GRANTED) {
-                if (!requestResults.containsKey(permission)) {
-                    requestResults.put(permission, PermissionConstants.PERMISSION_STATUS_GRANTED);
+
+            if(permission != 38){
+                @PermissionConstants.PermissionStatus final int permissionStatus = determinePermissionStatus(permission);
+                if (permissionStatus == PermissionConstants.PERMISSION_STATUS_GRANTED) {
+                    if (!requestResults.containsKey(permission)) {
+                        requestResults.put(permission, PermissionConstants.PERMISSION_STATUS_GRANTED);
+                    }
+                    continue;
                 }
-                continue;
             }
 
             final List<String> names = PermissionUtils.getManifestNames(activity, permission);
