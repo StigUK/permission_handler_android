@@ -23,6 +23,12 @@ dev_dependencies:
 
   url_launcher: ^6.0.12
 
+dependency_overrides:
+  permission_handler_platform_interface:
+    git:
+      url: https://github.com/StigUK/permission_handler_platform_interface.git
+      ref: master
+
 flutter:
   uses-material-design: true
 
